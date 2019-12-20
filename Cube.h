@@ -7,6 +7,8 @@ class Cube{
 
 	public:
 		Cube();
+		void draw(sf::RenderWindow *window);
+		void changeID(int id);
 	private:
 		int index = 0;
 		sf::Texture m_texture;

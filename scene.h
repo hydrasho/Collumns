@@ -3,20 +3,23 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "Musique.h"
 #include <iostream>
+
+#include "Musique.h"
+#include "Game.h"
 
 class Scene
 {
 	public:
-		enum Activity{MENU,PAUSE,GAME};
+		enum Activity{MENU, PAUSE, INTRO, GAME};
 		Scene(sf::RenderWindow *window, Musique *music);
 		void drawer(sf::RenderWindow *window);
-	void onEvent(int keyboard);
+		void onEvent(int keyboard);
 	protected:
 		void animation();
 	private:
-		sf::Music *m_music = NULL;
+		Game m_game;
+		Musique *m_music = NULL;
 		Activity activity = MENU;
 
 		sf::Sprite m_sbackground;

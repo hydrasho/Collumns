@@ -15,13 +15,14 @@ Scene::Scene(sf::RenderWindow *window, Musique *music)
 	m_sange.setPosition(0, window->getSize().y);
 
 	m_stext.setPosition(0, m_ttitre.getSize().y + 32);
+	m_music = music;
 	music->playZone(0);
 }
 void Scene::drawer(sf::RenderWindow *window)
 {
+	window->draw(m_sbackground);
 	if(activity == MENU)
 	{
-		window->draw(m_sbackground);
 		animation();
 		if(a_textBool)
 		{
@@ -29,6 +30,14 @@ void Scene::drawer(sf::RenderWindow *window)
 		}
 		window->draw(m_stitre);
 		window->draw(m_sange);
+	}
+	if(activity == INTRO)
+	{
+			m_game.drawIntro(window);
+	}
+	if(activity == GAME)
+	{
+		m_game.draw(window);
 	}
 }
 
@@ -45,12 +54,22 @@ void Scene::animation()
 }
 void Scene::onEvent(int keyboard)
 {
-	std::cout << keyboard << std::endl;
 	if(activity == MENU)
+	{
+		if(keyboard != sf::Keyboard::Return)
+		{
+			activity = INTRO;
+			m_music->playZone(4);
+		}
+	}
+	if(activity == INTRO)
 	{
 		if(keyboard == sf::Keyboard::Return)
 		{
-			activity = PAUSE;
+			m_music->stop();
+			m_music->intro();
+			activity = GAME;
+			m_music->playZone(3);
 		}
 	}
 }
