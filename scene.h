@@ -2,13 +2,23 @@
 #define __SCENE_H__
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include "Musique.h"
+#include <iostream>
 
 class Scene
 {
 	public:
-		Scene(sf::RenderWindow *window);
+		enum Activity{MENU,PAUSE,GAME};
+		Scene(sf::RenderWindow *window, Musique *music);
 		void drawer(sf::RenderWindow *window);
+	void onEvent(int keyboard);
+	protected:
+		void animation();
 	private:
+		sf::Music *m_music = NULL;
+		Activity activity = MENU;
+
 		sf::Sprite m_sbackground;
 		sf::Texture m_tbackground;
 		sf::Sprite m_stitre;
@@ -17,6 +27,9 @@ class Scene
 		sf::Texture m_tange;
 		sf::Sprite m_stext;
 		sf::Texture m_ttext;
+
+		bool a_textBool = false;
+		sf::Clock a_textClock;
 
 };
 
