@@ -13,6 +13,7 @@ class Game{
 		void drawIntro(sf::RenderWindow *window);
 		void left();
 		void right();
+		void down();
 		void constructGame()
 		{
 			m_threecube.setID(&m_selector);

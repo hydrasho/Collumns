@@ -25,6 +25,9 @@ class ThreeCube{
 			select->shuffle();
 
 		}
+		
+		void setTouch(bool value);
+		bool isTouch();
 		void left();
 		void right();
 		void repoint();
@@ -36,6 +39,7 @@ class ThreeCube{
 		Cube one;
 		Cube two;
 		Cube three;
+		bool b_touch = false;
 
 };
 

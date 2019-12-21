@@ -30,6 +30,12 @@ void ThreeCube::repoint()
 	two.getSprite().setPosition(256, 32);
 	three.getSprite().setPosition(256, 64);
 }
+bool ThreeCube::isTouch(){
+	return b_touch;
+}
+void ThreeCube::setTouch(bool value){
+	b_touch = value;
+}
 void ThreeCube::tombe(){
 	if(three.getSprite().getPosition().y <= 448)
 	{
@@ -37,6 +43,8 @@ void ThreeCube::tombe(){
 		two.getSprite().move(0, 32);
 		three.getSprite().move(0, 32);
 	}
+	else
+		b_touch = true;
 }
 void ThreeCube::draw(sf::RenderWindow *window){
 
