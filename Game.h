@@ -2,6 +2,8 @@
 #define __GAME_H__
 
 #include <SFML/Graphics.hpp>
+#include "ThreeCube.h"
+#include "Selector.h"
 
 class Game{
 
@@ -9,6 +11,12 @@ class Game{
 		Game();
 		void draw(sf::RenderWindow *window);
 		void drawIntro(sf::RenderWindow *window);
+		void left();
+		void right();
+		void constructGame()
+		{
+			m_threecube.setID(&m_selector);
+		}
 	private:
 		sf::Texture m_tgrille;
 		sf::Texture m_tafter;
@@ -19,6 +27,8 @@ class Game{
 		sf::Sprite m_scache;
 		sf::Sprite m_sintro;
 
+		ThreeCube m_threecube;
+		Selector m_selector;
 };
 
 #endif

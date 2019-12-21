@@ -1,12 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include "scene.h"
 #include "Musique.h"
-
+#include <time.h>
 #define XWIDTH 512
 #define XHEIGHT 544
 
 int main()
 {
+	srand(time(NULL));
 	Musique music;
 	sf::RenderWindow window(sf::VideoMode(XWIDTH, XHEIGHT), "Collumns");
 	Scene scene(&window, &music);
@@ -25,7 +26,6 @@ int main()
 				scene.onEvent(event.key.code);
 			}
 		}
-		sf::Sprite m_sprite;
 		window.clear();
 		scene.drawer(&window);
 		window.display();

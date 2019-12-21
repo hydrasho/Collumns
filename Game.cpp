@@ -14,12 +14,14 @@ Game::Game(){
 
 	m_sgrille.setPosition(160, 96);
 	m_safter.setPosition(384, 96);
+	
 }
 void Game::draw(sf::RenderWindow *window){
 	window->draw(m_sgrille);
 	window->draw(m_safter);
+	m_threecube.draw(window);
+	m_selector.draw(window);
 	window->draw(m_scache);
-
 
 }
 void Game::drawIntro(sf::RenderWindow *window){
@@ -27,4 +29,13 @@ void Game::drawIntro(sf::RenderWindow *window){
 	window->draw(m_safter);
 	window->draw(m_scache);
 	window->draw(m_sintro);
+	m_selector.draw(window);
+}
+void Game::left()
+{
+	m_threecube.left();
+}
+void Game::right()
+{
+	m_threecube.right();
 }

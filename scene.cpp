@@ -69,7 +69,21 @@ void Scene::onEvent(int keyboard)
 			m_music->stop();
 			m_music->intro();
 			activity = GAME;
+			m_game.constructGame();
 			m_music->playZone(3);
+		}
+	}
+	if(activity == GAME)
+	{
+		if(keyboard == sf::Keyboard::Left)
+		{
+			m_game.left();
+			std::cout << "gauche";
+		}
+		if(keyboard == sf::Keyboard::Right)
+		{
+			m_game.right();
+			std::cout << "droit";
 		}
 	}
 }
