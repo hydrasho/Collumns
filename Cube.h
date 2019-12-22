@@ -9,11 +9,16 @@ class Cube{
 	public:
 		Cube();
 		Cube(int index);
+		Cube(sf::Vector2f position, int index);
 		void draw(sf::RenderWindow *window);
 		void changeID();
 		void changeID(int id);
 		int getID(){
 			return m_index;
+		}
+		sf::Vector2f getPosition()
+		{
+			return m_sprite.getPosition();
 		}
 		sf::Sprite &getSprite()
 		{

@@ -3,8 +3,8 @@ CC=g++
 SRC=*.cpp
 APP=APP
 
-all: ${APP}
-
-
-${APP}:	 ${SRC:.c=.o}
+all: ${SRC:.c=.o}
 			${CC} ${SRC} -o ${APP} ${LIB}
+
+clean:
+	rm -rf ${APP}

@@ -25,13 +25,27 @@ class ThreeCube{
 			select->shuffle();
 
 		}
-		
+
+		sf::Vector2f getPosOne()
+		{
+			return one.getPosition();
+		}
+		sf::Vector2f getPosTwo()
+		{
+			return two.getPosition();
+		}
+		sf::Vector2f getPosThree()
+		{
+			return three.getPosition();
+		}
+
+
 		void setTouch(bool value);
 		bool isTouch();
 		void left();
 		void right();
 		void repoint();
-		void tombe();
+		void onTombe();
 		void draw(sf::RenderWindow *window);
 	private:
 		sf::Clock agravity;

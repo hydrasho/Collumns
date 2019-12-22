@@ -2,8 +2,11 @@
 #define __GAME_H__
 
 #include <SFML/Graphics.hpp>
+#include "Cube.h"
 #include "ThreeCube.h"
 #include "Selector.h"
+#include "Map.h"
+
 
 class Game{
 
@@ -30,6 +33,7 @@ class Game{
 
 		ThreeCube m_threecube;
 		Selector m_selector;
+		Map m_map;
 };
 
 #endif

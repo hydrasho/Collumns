@@ -14,7 +14,7 @@ Game::Game(){
 
 	m_sgrille.setPosition(160, 96);
 	m_safter.setPosition(384, 96);
-	
+
 }
 void Game::draw(sf::RenderWindow *window){
 	window->draw(m_sgrille);
@@ -23,10 +23,27 @@ void Game::draw(sf::RenderWindow *window){
 	m_selector.draw(window);
 	window->draw(m_scache);
 
-	if(m_threecube.isTouch() == true)
+
+
+
+	m_map.draw(window);
+
+
+
+	if(m_threecube.isTouch() == true)//Quand le cursor touch un objet
 	{
+		int a,b,c;
+		m_threecube.getID(&a, &b, &c);
+		m_map.addBlock(m_threecube.getPosOne(), a);
+		m_map.addBlock(m_threecube.getPosTwo(), b);
+		m_map.addBlock(m_threecube.getPosThree(), c);
+		
 		m_threecube.setID(&m_selector);
 		m_selector.shuffle();
+
+
+
+
 		m_threecube.repoint();
 		m_threecube.setTouch(false);
 	}
@@ -49,5 +66,5 @@ void Game::right()
 }
 void Game::down()
 {
-	m_threecube.tombe();
+	m_threecube.onTombe();
 }

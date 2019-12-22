@@ -36,7 +36,7 @@ bool ThreeCube::isTouch(){
 void ThreeCube::setTouch(bool value){
 	b_touch = value;
 }
-void ThreeCube::tombe(){
+void ThreeCube::onTombe(){
 	if(three.getSprite().getPosition().y <= 448)
 	{
 		one.getSprite().move(0, 32);
@@ -50,7 +50,7 @@ void ThreeCube::draw(sf::RenderWindow *window){
 
 	if(agravity.getElapsedTime().asMilliseconds() >= 1200)
 	{
-		this->tombe();
+		this->onTombe();
 		agravity.restart();
 	}
 	window->draw(one.getSprite());

@@ -21,5 +21,4 @@ void Selector::shuffle(){
 	one.changeID();
 	two.changeID();
 	three.changeID();
-	std::cout<< "CHANGEMNT";
 }
