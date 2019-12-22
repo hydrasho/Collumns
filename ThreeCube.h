@@ -23,8 +23,8 @@ class ThreeCube{
 			two.changeID(b);
 			three.changeID(c);
 			select->shuffle();
-
 		}
+		void melange();
 
 		sf::Vector2f getPosOne()
 		{

@@ -68,3 +68,7 @@ void Game::down()
 {
 	m_threecube.onTombe();
 }
+void Game::melange()
+{
+	m_threecube.melange();
+}

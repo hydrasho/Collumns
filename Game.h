@@ -17,6 +17,7 @@ class Game{
 		void left();
 		void right();
 		void down();
+		void melange();
 		void constructGame()
 		{
 			m_threecube.setID(&m_selector);

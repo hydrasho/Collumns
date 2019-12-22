@@ -87,5 +87,9 @@ void Scene::onEvent(int keyboard)
 		{
 			m_game.down();
 		}
+		if(keyboard == sf::Keyboard::Z || keyboard == sf::Keyboard::X)
+		{
+			m_game.melange();
+		}
 	}
 }

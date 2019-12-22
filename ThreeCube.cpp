@@ -24,6 +24,13 @@ void ThreeCube::right()
 		three.getSprite().move(32, 0);
 	}
 }
+void ThreeCube::melange()
+{
+	int tmp = one.getID();
+	one.changeID(two.getID());
+	two.changeID(three.getID());
+	three.changeID(tmp);
+}
 void ThreeCube::repoint()
 {
 	one.getSprite().setPosition(256, 0);
